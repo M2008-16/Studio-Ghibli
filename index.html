@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Ghibli - Películas</title>
+    <link rel="stylesheet" href="CSS/style.css">
+   <link rel ="icon" href="Img/descarga.png" type="image/png"> 
+</head>
+
+<body>
+    <div class="contenedor">
+        <!-- Header -->
+        <header class="encabezado">
+            <h1 class="titulo">Studio Ghibli</h1>
+            <p class="subtitulo">Explora las obras maestras del Studio Ghibli</p>
+        </header>
+
+        <!-- Buscador -->
+        <div class="seccion-busqueda">
+            <div class="caja-busqueda">
+                <input type="text" id="entradaBusqueda" placeholder="Busca una película..." class="entrada-busqueda">
+                <button id="botonBuscar" class="boton-buscar">Buscar</button>
+            </div>
+        </div>
+
+        <!-- Indicador de carga -->
+        <div id="cargando" class="cargando">
+            <div class="girador"></div>
+            <p>Cargando películas...</p>
+        </div>
+
+        <!-- Grid de películas -->
+        <div id="contenedorPeliculas" class="cuadrilla-peliculas">
+            <!-- Las películas se cargarán aquí -->
+        </div>
+
+        <!-- Modal para detalles -->
+        <div id="modal" class="modal">
+            <div class="contenido-modal">
+                <span class="cerrar">&times;</span>
+                <div id="cuerpoModal" class="cuerpo-modal">
+                    <!-- El contenido de la película se cargará aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/script.js"></script>
+</body>
+
+</html>
