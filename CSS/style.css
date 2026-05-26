@@ -1,0 +1,411 @@
+/* ========== RESET UNIVERSAL ========== */
+* {
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina rellenos por defecto */
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto total */
+}
+
+/* ========== VARIABLES CSS ========== */
+:root {
+    /* Variables de colores principales */
+    --primary-color: #2c3e50; /* Color primario (azul oscuro) */
+    --secondary-color: #e74c3c; /* Color secundario (rojo) */
+    --accent-color: #f39c12; /* Color de acento (naranja) */
+    --text-color: #2c3e50; /* Color del texto */
+    --light-bg: #ecf0f1; /* Fondo claro */
+    --white: #ffffff; /* Blanco */
+    /* Efectos visuales reutilizables */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra estándar */
+    --transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+
+/* ========== ESTILOS DEL CUERPO ========== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Establece la tipografía */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fondo con gradiente diagonal púrpura */
+    min-height: 100vh; /* Altura mínima: ocupar toda la pantalla */
+    color: var(--text-color); /* Color del texto */
+    padding: 20px 0; /* Espaciado superior e inferior */
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.contenedor {
+    max-width: 1200px; /* Ancho máximo para centrar contenido */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 0 20px; /* Espaciado lateral */
+}
+
+/* ========== ENCABEZADO ========== */
+.encabezado {
+    text-align: center; /* Alinea el texto al centro */
+    color: var(--white); /* Texto blanco */
+    margin-bottom: 40px; /* Espacio inferior */
+    animation: slideDown 0.6s ease; /* Animación de deslizamiento hacia abajo */
+}
+
+.titulo {
+    font-size: 3.5rem; /* Tamaño muy grande */
+    font-weight: 700; /* Peso muy grueso (bold) */
+    margin-bottom: 10px; /* Espacio inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra de texto para profundidad */
+}
+
+.subtitulo {
+    font-size: 1.2rem; /* Tamaño mediano */
+    opacity: 0.9; /* Ligeramente transparente */
+    font-weight: 300; /* Peso muy delgado */
+}
+
+/* ========== SECCIÓN DE BÚSQUEDA ========== */
+.seccion-busqueda {
+    background: var(--white); /* Fondo blanco */
+    padding: 25px; /* Espaciado interno */
+    border-radius: 15px; /* Esquinas redondeadas */
+    margin-bottom: 40px; /* Espacio inferior */
+    box-shadow: var(--shadow); /* Aplica sombra */
+    animation: slideUp 0.6s ease; /* Animación de deslizamiento hacia arriba */
+}
+
+.caja-busqueda {
+    display: flex; /* Usa flexbox para alinear elementos */
+    gap: 10px; /* Espacio entre elementos */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.entrada-busqueda {
+    flex: 1; /* Ocupa espacio disponible */
+    padding: 12px 18px; /* Espaciado interno */
+    border: 2px solid var(--light-bg); /* Borde gris claro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    font-size: 1rem; /* Tamaño de fuente normal */
+    transition: var(--transition); /* Transición suave */
+}
+
+.entrada-busqueda:focus {
+    outline: none; /* Elimina el borde por defecto del navegador */
+    border-color: var(--secondary-color); /* Cambia borde a rojo al enfocarse */
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.3); /* Sombra roja alrededor */
+}
+
+.boton-buscar {
+    padding: 12px 20px; /* Espaciado interno */
+    background: var(--secondary-color); /* Fondo rojo */
+    color: var(--white); /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor como mano */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor */
+    transition: var(--transition); /* Transición suave */
+}
+
+.boton-buscar:hover {
+    background: #c0392b; /* Rojo más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Sube el botón 2px */
+}
+
+
+/* ========== ESTADO DE CARGANDO ========== */
+.cargando {
+    text-align: center; /* Alinea al centro */
+    padding: 40px; /* Espaciado interno */
+    color: var(--white); /* Texto blanco */
+    animation: slideDown 0.6s ease; /* Animación de entrada */
+}
+
+/* ========== CUADRILLA DE PELÍCULAS ========== */
+.cuadrilla-peliculas {
+    display: grid; /* Usa CSS Grid */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Columnas responsive: mínimo 280px */
+    gap: 25px; /* Espacio entre elementos */
+    animation: fadeIn 0.6s ease; /* Animación de aparición */
+}
+
+/* ========== TARJETA DE PELÍCULA ========== */
+.tarjeta-pelicula {
+    background: var(--white); /* Fondo blanco */
+    border-radius: 12px; /* Esquinas redondeadas */
+    overflow: hidden; /* Oculta contenido que sobresale */
+    box-shadow: var(--shadow); /* Sombra */
+    transition: var(--transition); /* Transición suave */
+    cursor: pointer; /* Cursor como mano */
+    transform: translateY(0); /* Posición inicial */
+}
+
+.tarjeta-pelicula:hover {
+    transform: translateY(-10px); /* Sube la tarjeta al pasar ratón */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada */
+}
+
+.cartel-pelicula {
+    width: 100%; /* Ancho completo */
+    height: 200px; /* Altura fija */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente púrpura */
+    display: flex; /* Usa flexbox */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    font-size: 4rem; /* Tamaño grande */
+    color: rgba(255, 255, 255, 0.7); /* Blanco semi-transparente */
+}
+
+/* ========== INFORMACIÓN DE PELÍCULA ========== */
+.info-pelicula {
+    padding: 20px; /* Espaciado interno */
+}
+
+.titulo-pelicula {
+    font-size: 1.3rem; /* Tamaño mediano-grande */
+    font-weight: 700; /* Peso grueso (bold) */
+    margin-bottom: 8px; /* Espacio inferior */
+    color: var(--text-color); /* Color del texto */
+    line-height: 1.3; /* Altura de línea */
+}
+
+.anio-pelicula {
+    color: #95a5a6; /* Gris */
+    font-size: 0.9rem; /* Tamaño pequeño */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.director-pelicula {
+    font-size: 0.95rem; /* Tamaño pequeño-mediano */
+    color: var(--secondary-color); /* Rojo */
+    margin-bottom: 12px; /* Espacio inferior */
+    font-weight: 600; /* Peso semi-bold */
+}
+
+.puntuacion-pelicula {
+    display: inline-block; /* Ancho automático */
+    background: var(--accent-color); /* Fondo naranja */
+    color: var(--white); /* Texto blanco */
+    padding: 5px 12px; /* Espaciado interno */
+    border-radius: 20px; /* Muy redondeado (píldora) */
+    font-size: 0.85rem; /* Tamaño pequeño */
+    font-weight: 600; /* Peso semi-bold */
+}
+
+.descripcion-pelicula {
+    font-size: 0.9rem; /* Tamaño pequeño */
+    color: #7f8c8d; /* Gris-azulado */
+    margin-top: 12px; /* Espacio superior */
+    line-height: 1.5; /* Altura de línea amplia */
+    display: none; /* Oculto por defecto */
+    max-height: 80px; /* Altura máxima */
+    overflow: hidden; /* Oculta contenido que sobresale */
+}
+
+.tarjeta-pelicula:hover .descripcion-pelicula {
+    display: block; /* Muestra descripción al pasar ratón */
+}
+
+.ver-detalles {
+    margin-top: 12px; /* Espacio superior */
+    padding: 8px 12px; /* Espaciado interno */
+    background: var(--secondary-color); /* Fondo rojo */
+    color: var(--white); /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 6px; /* Esquinas ligeramente redondeadas */
+    cursor: pointer; /* Cursor como mano */
+    font-size: 0.9rem; /* Tamaño pequeño */
+    transition: var(--transition); /* Transición suave */
+    display: inline-block; /* Ancho automático */
+}
+
+.ver-detalles:hover {
+    background: #c0392b; /* Rojo más oscuro */
+}
+
+/* ========== MODAL (VENTANA EMERGENTE) ========== */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en pantalla */
+    z-index: 1000; /* Muy arriba (sobre todo) */
+    left: 0; /* Esquina izquierda */
+    top: 0; /* Esquina superior */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+    animation: fadeIn 0.3s ease; /* Aparición rápida */
+}
+
+.modal.show {
+    display: block; /* Visible cuando tiene clase "show" */
+}
+
+.contenido-modal {
+    background-color: var(--white); /* Fondo blanco */
+    margin: 5% auto; /* Centrado con margen superior */
+    padding: 30px; /* Espaciado interno */
+    border-radius: 15px; /* Esquinas redondeadas */
+    width: 90%; /* Ancho del 90% */
+    max-width: 600px; /* Máximo 600px */
+    max-height: 80vh; /* Alto máximo 80% de la pantalla */
+    overflow-y: auto; /* Scroll vertical si es necesario */
+    animation: slideDown 0.3s ease; /* Deslizamiento hacia abajo */
+}
+
+.cerrar {
+    color: var(--text-color); /* Color del texto */
+    float: right; /* Alineado a la derecha */
+    font-size: 2rem; /* Tamaño grande */
+    font-weight: bold; /* Peso grueso */
+    cursor: pointer; /* Cursor como mano */
+    transition: var(--transition); /* Transición suave */
+}
+
+.cerrar:hover {
+    color: var(--secondary-color); /* Cambia a rojo al pasar ratón */
+}
+
+.cuerpo-modal h2 {
+    color: var(--text-color); /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
+    font-size: 2rem; /* Tamaño grande */
+}
+
+.detalle-modal {
+    margin: 15px 0; /* Espacio superior e inferior */
+    line-height: 1.8; /* Altura de línea amplia */
+}
+
+.detalle-modal strong {
+    color: var(--secondary-color); /* Rojo */
+    display: block; /* En su propia línea */
+    margin-bottom: 5px; /* Espacio inferior */
+}
+
+.detalle-modal p {
+    color: #555; /* Gris oscuro */
+}
+
+.banner-pelicula {
+    position: relative; /* Posición relativa para pseudo-elementos */
+    overflow: hidden; /* Oculta contenido que sobresale */
+}
+
+.banner-pelicula::after {
+    content: ''; /* Pseudo-elemento vacío */
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Desde la parte superior */
+    left: 0; /* Desde la izquierda */
+    right: 0; /* Hasta la derecha */
+    bottom: 0; /* Hasta la parte inferior */
+    background: rgba(0, 0, 0, 0.3); /* Oscurece la imagen con transparencia */
+}
+
+/* ========== ESTADO VACÍO ========== */
+.estado-vacio {
+    text-align: center; /* Alinea al centro */
+    padding: 60px 20px; /* Espaciado interno */
+    color: var(--white); /* Texto blanco */
+    animation: fadeIn 0.6s ease; /* Aparición gradual */
+}
+
+.estado-vacio h2 {
+    font-size: 2rem; /* Tamaño grande */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.estado-vacio p {
+    font-size: 1.1rem; /* Tamaño mediano */
+    opacity: 0.8; /* Ligeramente transparente */
+}
+
+/* ========== ANIMACIONES ========== */
+/* Animación de deslizamiento hacia abajo */
+@keyframes slideDown {
+    from {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(-30px); /* Comienza 30px más arriba */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+        transform: translateY(0); /* Posición final normal */
+    }
+}
+
+/* Animación de deslizamiento hacia arriba */
+@keyframes slideUp {
+    from {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(30px); /* Comienza 30px más abajo */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+        transform: translateY(0); /* Posición final normal */
+    }
+}
+
+/* Animación de aparición gradual */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Comienza invisible */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+    }
+}
+
+/* ========== MEDIA QUERIES - RESPONSIVE ========== */
+/* Pantallas medianas (tabletas) - máximo 768px */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 2.5rem; /* Reduce tamaño */
+    }
+
+    .subtitulo {
+        font-size: 1rem; /* Reduce tamaño */
+    }
+
+    .caja-busqueda {
+        flex-direction: column; /* Elementos apilados verticalmente */
+    }
+
+    .entrada-busqueda,
+    .boton-buscar {
+        width: 100%; /* Ancho completo */
+    }
+
+    .cuadrilla-peliculas {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas más pequeñas */
+        gap: 15px; /* Menos espacio */
+    }
+
+    .contenido-modal {
+        width: 95%; /* Casi ancho completo */
+        margin: 20% auto; /* Margen superior mayor */
+        padding: 20px; /* Menos espaciado */
+    }
+}
+
+/* Pantallas pequeñas (móviles) - máximo 480px */
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 2rem; /* Más pequeño */
+    }
+
+    .cuadrilla-peliculas {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .seccion-busqueda {
+        padding: 15px; /* Menos espaciado */
+    }
+}
+
+/* ========== GIRADOR (SPINNER DE CARGA) ========== */
+.girador {
+    width: 50px; /* Ancho */
+    height: 50px; /* Alto (cuadrado) */
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Borde completo semi-transparente */
+    border-top: 5px solid var(--white); /* Borde superior blanco (sólido) */
+    border-radius: 50%; /* Forma circular */
+    margin: 0 auto 20px; /* Centrado con espacio inferior */
+    animation: girar 1s linear infinite; /* Rotación infinita */
+}
+
+/* Animación de giro */
+@keyframes girar {
+    to {
+        transform: rotate(360deg); /* Gira 360 grados */
+    }
+}
